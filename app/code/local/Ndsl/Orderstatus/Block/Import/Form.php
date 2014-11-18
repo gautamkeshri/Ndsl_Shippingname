@@ -13,17 +13,16 @@ class Ndsl_Orderstatus_Block_Import_Form extends Mage_Adminhtml_Block_Widget
         $this->setTemplate('orderstatus/import/form.phtml');
     }
     
-     public function getCarriers()
+     public function getSataus()
     {
-        $carriers = array();
-        $carrierInstances = Mage::getSingleton('shipping/config')->getAllCarriers(0);
-        $carriers['custom'] = Mage::helper('sales')->__('Custom Value');
-        foreach ($carrierInstances as $code => $carrier) {
-            if ($carrier->isTrackingAvailable()) {
-                $carriers[$code] = $carrier->getConfigData('title');
-            }
+        $orderstatus = array();
+        $status_collection = Mage::getModel('sales/order_status')->getResourceCollection()->getData();
+        $orderstatus['default'] = Mage::helper('sales')->__('Current State');
+        foreach ($status_collection as $status) {
+            $key = $status["status"];
+            $orderstatus[$key] = $status["label"];
         }
-        return $carriers;
+        return $orderstatus;
     }
 
 }

@@ -32,9 +32,12 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
     {
         if ($this->getRequest()->isPost() && !empty($_FILES['import_orderstatus_file']['tmp_name'])) {
             try {
+                $checkbox_state = 0;
                 $comment = $_POST['comments'];
+                $gorderstatus = $_POST['orderstatus_code'];
+                $checkbox_state = $_POST['createinvoce'];
                 
-                $this->_importTrackingFile($_FILES['import_orderstatus_file']['tmp_name'],$comment);
+                $this->_importTrackingFile($_FILES['import_orderstatus_file']['tmp_name'],$comment,$gorderstatus,$checkbox_state);
             }
             catch (Mage_Core_Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
@@ -55,7 +58,7 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
      * @param string $fileName
      * @param string $comment
      */
-    protected function _importTrackingFile($fileName,$comment)
+    protected function _importTrackingFile($fileName,$comment,$gorderstatus,$checkbox_state)
     {
         /**
          * File handling
@@ -118,7 +121,7 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
             /**
              * Try to change order status 
              */
-            $orderprocess = $this->_changeStatus($order,$comment);
+            $orderprocess = $this->_changeStatus($order,$comment,$gorderstatus,$checkbox_state);
 
             if ($orderprocess) {
                 $this->_getSession()->addSuccess($this->__('Order status changed for order %s', $orderId));
@@ -135,36 +138,40 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
      * @param string $comment
      * @return staus
      */
-    public function _changeStatus($order,$comment)
+    public function _changeStatus($order,$comment,$gorderstatus,$checkbox_state)
     {
+            if($gorderstatus == 'default')
+                $orderstatus = $order->getState();
             $order->setCustomerNote($comment)->setCustomerNoteNotify(true)
                                 ->addStatusToHistory(
-                                    //$order->getState(),
-                                    'processing',
+                                    $gorderstatus,
                                     $order->getCustomerNote(),
                                     $order->getCustomerNoteNotify())
                                 ->sendOrderUpdateEmail($order->getCustomerNoteNotify(), $order->getCustomerNote())
                                 ->save();
-            try 
-            {
-                if(!$order->canInvoice()) 
+            if($checkbox_state == "1"){
+                try 
                 {
-                    Mage::throwException(Mage::helper('core')->__('Cannot create an invoice.'));
-                }
-                $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
-                if (!$invoice->getTotalQty()) {
-                    Mage::throwException(Mage::helper('core')->__('Cannot create an invoice without products.'));
-                }
-                //$invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_ONLINE);
-                $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
-                $invoice->register();
-                $transactionSave = Mage::getModel('core/resource_transaction')
-                ->addObject($invoice)
-                ->addObject($invoice->getOrder());
-                $transactionSave->save();
-            } catch (Mage_Core_Exception $e) {
-                $this->_getSession()->addError($this->__('Order %s Error in Invoice ', $order->getIncrementId()));
-            }
+                    if(!$order->canInvoice()) 
+                    {
+                        Mage::throwException(Mage::helper('core')->__('Cannot create an invoice.'));
+                    }
+                    $invoice = Mage::getModel('sales/service_order', $order)->prepareInvoice();
+                    if (!$invoice->getTotalQty()) {
+                        Mage::throwException(Mage::helper('core')->__('Cannot create an invoice without products.'));
+                    }
+                    //$invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_ONLINE);
+                    $invoice->setRequestedCaptureCase(Mage_Sales_Model_Order_Invoice::CAPTURE_OFFLINE);
+                    $invoice->register();
+                    $transactionSave = Mage::getModel('core/resource_transaction')
+                    ->addObject($invoice)
+                    ->addObject($invoice->getOrder());
+                    $transactionSave->save();
+                } catch (Mage_Core_Exception $e) {
+                    $this->_getSession()->addError($this->__('Order %s Error in Invoice ', $order->getIncrementId()));
+                }    
+            }                    
+            
             $this->_getSession()->addSuccess($this->__('Email send to  %s',$order->getIncrementId()));                       
     }
 }
