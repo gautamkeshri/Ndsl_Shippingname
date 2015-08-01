@@ -140,15 +140,14 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
      */
     public function _changeStatus($order,$comment,$gorderstatus,$checkbox_state)
     {
-            if($gorderstatus == 'default')
-                $orderstatus = $order->getState();
-            $order->setCustomerNote($comment)->setCustomerNoteNotify(true)
-                                ->addStatusToHistory(
-                                    $gorderstatus,
-                                    $order->getCustomerNote(),
-                                    $order->getCustomerNoteNotify())
-                                ->sendOrderUpdateEmail($order->getCustomerNoteNotify(), $order->getCustomerNote())
-                                ->save();
+            //Mage::log($order->getState()." - ".$gorderstatus." - checkbox- ".$checkbox_state,null,'ostatus.log'); 
+            if($gorderstatus == "default"){
+                $gorderstatus = $order->getStatus();
+                //Mage::log($order->getState()." - ".$gorderstatus." - checkbox- ".$checkbox_state,null,'ostatus.log');    
+            }
+                $gorderstatus = $gorderstatus;
+            
+                             
             if($checkbox_state == "1"){
                 try 
                 {
@@ -172,7 +171,35 @@ class Ndsl_Orderstatus_ImportController extends Mage_Adminhtml_Controller_Action
                 }    
             }                    
             
+
+            $gstate = $this->_getAssignedState($gorderstatus);
+            if($gstate == $order->getState()){
+                $order->setCustomerNote($comment)->setCustomerNoteNotify(true)
+                      ->addStatusToHistory(
+                            $gorderstatus,
+                            $order->getCustomerNote(),
+                            $order->getCustomerNoteNotify())
+                            ->sendOrderUpdateEmail($order->getCustomerNoteNotify(), $order->getCustomerNote())
+                            ->save();
+            }else{
+                $gstate = $this->_getAssignedState($gorderstatus);
+                $isCustomerNotified = false;
+                $order->setState($gstate, $gorderstatus, $comment, false)->save();
+            }
+            
+
+               
             $this->_getSession()->addSuccess($this->__('Email send to  %s',$order->getIncrementId()));                       
+    }
+
+    protected function _getAssignedState($status)
+    {
+        $item = Mage::getResourceModel('sales/order_status_collection')
+            ->joinStates()
+            ->addFieldToFilter('main_table.status', $status)
+            ->getFirstItem();
+ 
+        return $item->getState();
     }
 }
 ?>
