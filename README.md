@@ -1,8 +1,14 @@
-Magento_Orderstatus
+Magento_Shippingname
 ===================
 
-Bulk order management - changes order status with customer notification. Has backend for csv import
+This addes shipping carrier name in system.
 
-V2.0 
-1. Order status can be managed by choosing slelect option.
-2. Order Invoice can be automated by clicking on checkbox.
+1. aramex.com
+2. bluedart.com
+3. overnitenet.com
+4. firstflight.net
+5. dtdc.com
+6. jetlinecouriers.com
+7. flightdispactch
+8. fasttrackcargo
+9. maruti
