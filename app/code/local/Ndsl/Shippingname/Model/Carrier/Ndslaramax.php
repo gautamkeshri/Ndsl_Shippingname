@@ -33,8 +33,8 @@
 		{
 			return array($this->_code=>$this->getConfigData('name'));
 		}
-        public function isTrackingAvailable() 
-        { 
-            return true; 
-        }
+		public function isTrackingAvailable() 
+		{ 
+			return true; 
+		}	
     }  
