@@ -1,9 +1,9 @@
 <?php  
-    class Ndsl_Shippingname_Model_Carrier_Ndslbludart     
+    class Ndsl_Shippingname_Model_Carrier_Ndslfedex     
 		extends Mage_Shipping_Model_Carrier_Abstract
 		implements Mage_Shipping_Model_Carrier_Interface
 	{  
-        protected $_code = 'ndslbludart';  
+        protected $_code = 'ndslfedex';  
       
         /** 
         * Collect rates for this shipping method based on information in $request 
@@ -32,18 +32,5 @@
 		public function getAllowedMethods()
 		{
 			return array($this->_code=>$this->getConfigData('name'));
-		}
-		public function isTrackingAvailable() 
-		{ 
-			return true; 
-		}
-		
-		public function getTrackingInfo($tracking)
-		{
-			$track = Mage::getModel('shipping/tracking_result_status');
-			$track->setUrl('http://www.bluedart.com/htotrack.html?numbers=' . $tracking)
-				->setTracking($tracking)
-				->setCarrierTitle($this->getConfigData('title'));
-			return $track;
 		}
     }  

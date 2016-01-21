@@ -36,5 +36,13 @@
 		public function isTrackingAvailable() 
 		{ 
 			return true; 
+		}
+		public function getTrackingInfo($tracking)
+		{
+			$track = Mage::getModel('shipping/tracking_result_status');
+			$track->setUrl('http://www.aramex.com/express/track-results-multiple.aspx?ShipmentNumber=' . $tracking)
+				->setTracking($tracking)
+				->setCarrierTitle($this->getConfigData('title'));
+			return $track;
 		}	
     }  

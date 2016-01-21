@@ -3,14 +3,14 @@
 	  <sections>
 		<carriers  translate="label" module="shippingname">            
 					<groups>
-				      <ndslaramax translate="label"> 
-					  <label>aramex.com</label>
+				      <ndsldelhivery translate="label"> 
+					  <label>Delhivery</label>
 					  <frontend_type>text</frontend_type>
-					  <sort_order>0</sort_order>
+					  <sort_order>1</sort_order>
 					  <show_in_default>1</show_in_default>
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslaramax</model>
+					  <model>shippingname/carrier_ndsldelhivery</model>
 				       <fields>                        
 				         <active translate="label">
                             <label>Enabled</label>
@@ -55,15 +55,15 @@
                             <sort_order>100</sort_order>
                         </sort_order>
 					   </fields>
-					   </ndslaramax>
-				      <ndslbluedart translate="label"> 
-					  <label>bluedart.com</label>
+					   </ndsldelhivery>
+				      <ndslfedex translate="label"> 
+					  <label>Fedex</label>
 					  <frontend_type>text</frontend_type>
 					  <sort_order>0</sort_order>
 					  <show_in_default>1</show_in_default>
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslbluedart</model>
+					  <model>shippingname/carrier_ndslfedex</model>
 				       <fields>                        
 				         <active translate="label">
                             <label>Enabled</label>
@@ -108,15 +108,15 @@
                             <sort_order>100</sort_order>
                         </sort_order>
 					   </fields>
-					   </ndslbluedart>
-				      <ndsldtdc translate="label"> 
-					  <label>dtdc.com</label>
+					   </ndslfedex>
+				      <ndslgati translate="label"> 
+					  <label>Gati</label>
 					  <frontend_type>text</frontend_type>
 					  <sort_order>0</sort_order>
 					  <show_in_default>1</show_in_default>
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndsldtdc</model>
+					  <model>shippingname/carrier_ndslgati</model>
 				       <fields>                        
 				         <active translate="label">
                             <label>Enabled</label>
@@ -161,15 +161,15 @@
                             <sort_order>100</sort_order>
                         </sort_order>
 					   </fields>
-					   </ndsldtdc>
-				      <ndslfasttrackcargo translate="label"> 
-					  <label>fasttrackcargo</label>
+					   </ndslgati>
+				      <ndslgojavas translate="label"> 
+					  <label>Gojavas</label>
 					  <frontend_type>text</frontend_type>
 					  <sort_order>0</sort_order>
 					  <show_in_default>1</show_in_default>
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslfasttrackcargo</model>
+					  <model>shippingname/carrier_ndslgojavas</model>
 				       <fields>                        
 				         <active translate="label">
                             <label>Enabled</label>
@@ -214,15 +214,15 @@
                             <sort_order>100</sort_order>
                         </sort_order>
 					   </fields>
-					   </ndslfasttrackcargo>
-				      <ndslfirstflight translate="label"> 
-					  <label>firstflight.net</label>
+					   </ndslgojavas>
+				      <ndsltnt translate="label"> 
+					  <label>TNT</label>
 					  <frontend_type>text</frontend_type>
 					  <sort_order>0</sort_order>
 					  <show_in_default>1</show_in_default>
 					  <show_in_website>1</show_in_website>
 					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslfirstflight</model>
+					  <model>shippingname/carrier_ndsltnt</model>
 				       <fields>                        
 				         <active translate="label">
                             <label>Enabled</label>
@@ -267,219 +267,7 @@
                             <sort_order>100</sort_order>
                         </sort_order>
 					   </fields>
-					   </ndslfirstflight>
-				      <ndslflightdispactch translate="label"> 
-					  <label>flightdispactch</label>
-					  <frontend_type>text</frontend_type>
-					  <sort_order>0</sort_order>
-					  <show_in_default>1</show_in_default>
-					  <show_in_website>1</show_in_website>
-					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslflightdispactch</model>
-				       <fields>                        
-				         <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </title>
-                        <name translate="label">
-                            <label>Method Name</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </name>
-                        <description translate="label">
-                            <label>Description</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>76</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </description>
-                        <sort_order translate="label">
-                            <label>Sort Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <sort_order>100</sort_order>
-                        </sort_order>
-					   </fields>
-					   </ndslflightdispactch>
-				      <ndsljetlinecouriers translate="label"> 
-					  <label>jetlinecouriers.com</label>
-					  <frontend_type>text</frontend_type>
-					  <sort_order>0</sort_order>
-					  <show_in_default>1</show_in_default>
-					  <show_in_website>1</show_in_website>
-					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndsljetlinecouriers</model>
-				       <fields>                        
-				         <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </title>
-                        <name translate="label">
-                            <label>Method Name</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </name>
-                        <description translate="label">
-                            <label>Description</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>76</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </description>
-                        <sort_order translate="label">
-                            <label>Sort Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <sort_order>100</sort_order>
-                        </sort_order>
-					   </fields>
-					   </ndsljetlinecouriers>
-				      <ndslmaruti translate="label"> 
-					  <label>maruti</label>
-					  <frontend_type>text</frontend_type>
-					  <sort_order>0</sort_order>
-					  <show_in_default>1</show_in_default>
-					  <show_in_website>1</show_in_website>
-					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslmaruti</model>
-				       <fields>                        
-				         <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </title>
-                        <name translate="label">
-                            <label>Method Name</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </name>
-                        <description translate="label">
-                            <label>Description</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>76</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </description>
-                        <sort_order translate="label">
-                            <label>Sort Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <sort_order>100</sort_order>
-                        </sort_order>
-					   </fields>
-					   </ndslmaruti>
-				      <ndslovernitenet translate="label"> 
-					  <label>overnitenet.com</label>
-					  <frontend_type>text</frontend_type>
-					  <sort_order>0</sort_order>
-					  <show_in_default>1</show_in_default>
-					  <show_in_website>1</show_in_website>
-					  <show_in_store>1</show_in_store>
-					  <model>shippingname/carrier_ndslovernitenet</model>
-				       <fields>                        
-				         <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <title translate="label">
-                            <label>Title</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>2</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </title>
-                        <name translate="label">
-                            <label>Method Name</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>3</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </name>
-                        <description translate="label">
-                            <label>Description</label>
-                            <frontend_type>textarea</frontend_type>
-                            <sort_order>76</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </description>
-                        <sort_order translate="label">
-                            <label>Sort Order</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <sort_order>100</sort_order>
-                        </sort_order>
-					   </fields>
-					   </ndslovernitenet>
+					   </ndsltnt>
 					</groups>
 		</carriers>
 	  </sections>
