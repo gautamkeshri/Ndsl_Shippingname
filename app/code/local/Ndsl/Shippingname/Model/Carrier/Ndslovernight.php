@@ -37,4 +37,12 @@
 		{ 
 			return true; 
 		}
+		public function getTrackingInfo($tracking)
+		{
+			$track = Mage::getModel('shipping/tracking_result_status');
+			$track->setUrl('' . $tracking)
+				->setTracking($tracking)
+				->setCarrierTitle($this->getConfigData('title'));
+			return $track;
+		}
     }  

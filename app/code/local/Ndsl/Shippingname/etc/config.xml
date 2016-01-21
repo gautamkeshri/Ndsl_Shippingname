@@ -20,6 +20,79 @@
   </global>    
 	<default>
         <carriers>
+			<ndslaramax>
+                <active>0</active>
+                <model>shippingname/carrier_ndslaramax</model>
+                <name>ndslaramax</name>
+                <title>aramax</title>
+                <description>Ndsl aramax shipping base code</description>
+                <sort_order>0</sort_order>
+            </ndslaramax>
+            <ndslbludart>
+                <active>0</active>
+                <model>shippingname/carrier_ndslbludart</model>
+                <name>ndslbludart</name>
+                <title>bludart</title>
+                <description>Ndsl bludart shipping base code</description>
+                <sort_order>1</sort_order>
+            </ndslbludart>
+            <ndslovernight>
+                <active>0</active>
+                <model>shippingname/carrier_ndslovernight</model>
+                <name>ndslovernight</name>
+                <title>overnight</title>
+                <description>Ndsl overnight shipping base code</description>
+                <sort_order>2</sort_order>
+            </ndslovernight>
+			
+			<ndslfirstflight>
+                <active>0</active>
+                <model>shippingname/carrier_ndslfirstflight</model>
+                <name>ndslfirstflight</name>
+                <title>firstflight.net</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndslfirstflight>
+            <ndsldtdc>
+                <active>0</active>
+                <model>shippingname/carrier_ndsldtdc</model>
+                <name>ndsldtdc</name>
+                <title>dtdc.com</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndsldtdc>
+            <ndsljetlinecouriers>
+                <active>0</active>
+                <model>shippingname/carrier_ndsljetlinecouriers</model>
+                <name>ndsljetlinecouriers</name>
+                <title>jetlinecouriers.com</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndsljetlinecouriers>
+            <ndslflightdispactch>
+                <active>0</active>
+                <model>shippingname/carrier_ndslflightdispactch</model>
+                <name>ndslflightdispactch</name>
+                <title>flightdispactch</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndslflightdispactch>
+            <ndslfasttrackcargo>
+                <active>0</active>
+                <model>shippingname/carrier_ndslfasttrackcargo</model>
+                <name>ndslfasttrackcargo</name>
+                <title>fasttrackcargo</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndslfasttrackcargo>
+            <ndslmaruti>
+                <active>0</active>
+                <model>shippingname/carrier_ndslmaruti</model>
+                <name>ndslmaruti</name>
+                <title>maruti</title>
+                <description>Ndsl code just adds carrier name in magento</description>
+                <sort_order>0</sort_order>
+            </ndslmaruti>
             <ndsltnt>
                 <active>0</active>
                 <model>shippingname/carrier_ndsltnt</model>
